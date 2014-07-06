@@ -7,7 +7,7 @@ set ruler
 set laststatus=2
 set showcmd
 set wildmenu
-set wildignore=*.o,*.hi,*.pyc,*~
+set wildignore=*.o,*.hi,*.pyc
 
 set hlsearch
 set incsearch
@@ -20,28 +20,28 @@ set expandtab
 set shiftwidth=2
 set autoindent
 
-set showmatch
-set mat=2
-set encoding=utf8
-set smartindent
-set wrap
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-
-
 set foldmethod=indent
 set foldlevel=20
+
+highlight CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE guibg=red guifg=white
+highlight CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=NONE guibg=red guifg=white
+
+autocmd WinLeave * set nocursorline nocursorcolumn
+autocmd WinEnter * set cursorline cursorcolumn
+
+set cursorline cursorcolumn
+
 highlight ExtraWhitespace ctermbg=red ctermfg=white guibg=red
+
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertLeave	* match ExtraWhitespace /\s\+$/
 
-set colorcolumn=81
 filetype indent on
 filetype plugin on
-let python_highlight_all=1
 
-function! HasPaste()
-  if &paste
-    return 'PASTE MODE  '
-  en
-    return ''
-endfunction
+let python_highlight_all=1
+au BufRead,BufNewFile *.asm set filetype=nasm
+
+set nobackup
+set nowritebackup
+set noswapfile
