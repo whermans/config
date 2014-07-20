@@ -2,7 +2,6 @@ syntax on
 set t_Co=256
 colorscheme ron
 
-set number
 set ruler
 set laststatus=2
 set showcmd
