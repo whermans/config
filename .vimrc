@@ -7,6 +7,8 @@ set laststatus=2
 set showcmd
 set wildmenu
 set wildignore=*.o,*.hi,*.pyc
+set number
+set showmatch
 
 set hlsearch
 set incsearch
